@@ -1,0 +1,89 @@
+//
+// Mixins
+//
+
+// clearfix
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Truncate
+@mixin truncate() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Fit element between floated objects
+@mixin fit() {
+  @include truncate();
+  display: block;
+  width: auto;
+}
+
+// Center vertically
+@mixin centerY() {
+  font-size: 0;
+  height: 100%;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 1px;
+    height: 100%;
+    margin-left: -1px;
+  }
+
+  & > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+//
+// Media queries
+//
+
+//Mobile
+@mixin media-max-xs {
+  @media only screen and (max-width: #{$widthXS - 1px}) { @content; }
+}
+
+@mixin media-min-xs {
+  @media only screen and (min-width: #{$widthXS}) { @content; }
+}
+
+// Tablet vertical
+@mixin media-max-sm {
+  @media only screen and (max-width: #{$widthSM - 1px}) { @content; }
+}
+
+@mixin media-min-sm {
+  @media only screen and (min-width: #{$widthSM}) { @content; }
+}
+
+//Tablet horizontal
+@mixin media-max-md {
+  @media only screen and (max-width: #{$widthMD - 1px}) { @content; }
+}
+
+@mixin media-min-md {
+  @media only screen and (min-width: #{$widthMD}) { @content; }
+}
+
+// Desktop
+@mixin media-max-lg {
+  @media only screen and (max-width: #{$widthLG - 1px}) { @content; }
+}
+
+@mixin media-min-lg {
+  @media only screen and (min-width: #{$widthLG}) { @content; }
+}

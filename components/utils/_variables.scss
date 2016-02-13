@@ -1,0 +1,170 @@
+//
+// Variables
+//
+
+// Theme colors
+$white: #fff;
+$black: #000;
+
+$gray-1: #f2f2f2;
+$gray-2: #cfcece;
+$gray-3: #b3b5b7;
+$gray-4: #d1e0e3;
+$gray-5: #686868;
+$gray-6: #31313d;
+
+$blue-1: #00385d;
+$blue-2: #004169;
+$blue-3: #004f7c;
+$blue-4: #005a8b;
+$blue-5: #006d9d;
+$blue-6: #0085b8;
+$blue-7: #27a3d4;
+$blue-8: #5bc4f1;
+
+$green-1: #0b612d;
+$green-2: #238937;
+$green-3: #7ab800;
+$green-4: #a9cf38;
+
+$purple: #953c8e;
+$orange: #fdb714;
+$pink: #ec008c;
+
+
+$background: #d3e1e4;
+$alpha: #e9f0f1; //fade-out($background, 0.5);
+$body: $blue-2;
+$positive: $blue-4;
+$balanced: $green-3;
+$significant: $blue-7;
+$disabled: $background;
+$modal: $blue-1;
+$modalOverlay: fade-out($blue-1, 0.3);
+$subdued: $blue-5;
+$gradient: linear-gradient($blue-1 0%, $blue-8 100%);
+$menuHover: $blue-7;
+$inputColor: $subdued;
+$divider: $gray-4;
+
+// buttons
+$primary: $balanced;
+$primaryText: $white;
+$primaryBorder: $balanced;
+$primaryHover: darken($primary,5%);
+$textHover: $white;
+$borderHover: darken($primary,5%);
+$primaryActive: darken($primary,10%);
+$textActive: $white;
+$borderActive: darken($primary,10%);
+
+$inverted: $white;
+$invertedText: $balanced;
+$invertedBorder: $white;
+$invertedHover: darken($inverted,15%);
+$invertedTextHover: $balanced;
+$invertedBorderHover: darken($inverted,15%);
+$invertedActive: darken($inverted,30%);
+$invertedTextActive: $balanced;
+$invertedBorderActive: darken($inverted,30%);
+
+$secondary: $significant;
+$secondaryText: $white;
+$secondaryBorder: $secondary;
+$secondaryHover: darken($secondary,5%);
+$secondaryTextHover: $white;
+$secondaryBorderHover: darken($secondary,5%);
+$secondaryActive: darken($secondary,10%);
+$secondaryTextActive: $white;
+$secondaryBorderActive: darken($secondary,10%);
+
+$warning: $purple;
+$warningText: $white;
+$warningBorder: $warning;
+$warningHover: darken($warning,5%);
+$warningTextHover: $white;
+$warningBorderHover: darken($warning,5%);
+$warningActive: darken($warning,10%);
+$warningTextActive: $white;
+$warningBorderActive: darken($warning,10%);
+
+$negative: $purple;
+$negativeText: $white;
+$negativeBorder: $negative;
+$negativeHover: darken($negative,5%);
+$negativeTextHover: $white;
+$negativeBorderHover: darken($negative,5%);
+$negativeActive: darken($negative,10%);
+$negativeTextActive: $white;
+$negativeBorderActive: darken($negative,10%);
+
+$link: $significant;
+$linkHover: darken($link,10%);
+
+// Header
+$headerColor: $blue-3;
+$headerText: $white;
+$headerHeight: 60px;
+$headerHeightSM: 50px;
+
+// Drawer
+$drawerWidth: 275px;
+
+// Other properties
+$shadow: 0 2px 6px rgba(0,0,0,0.3);
+$shadowReverse: 0 -2px 6px rgba(0,0,0,0.3);
+$shadowInset: inset 0 0 10px rgba(0,0,0,.1);
+$shadowSignificant: inset 0 0 1px $significant;
+$shadowValid: inset 0 0 1px $balanced;
+$shadowInvalid: inset 0 0 1px $negative;
+
+$radius: 2px;
+$radiusLarge: 8px;
+
+// Grid variables
+$gutter: 26px;
+$columnGutter: $gutter / 2;
+
+$contentPadding: 26px;
+
+// Breakpoints
+$widthXS: 480px;
+$widthSM: 768px;
+$widthMD: 992px;
+$widthLG: 1167px;
+
+// Min and Max widths
+$widthMin: 320px;
+$widthMax: $widthLG;
+
+// Color classnames
+.bkg-alpha { background-color: $alpha !important; }
+.bkg-transparent { background-color: transparent; }
+.bkg-header {
+  background-color: $headerColor !important;
+  color: white;
+}
+.bkg-gradient {
+  background-image: $gradient;
+  color: white;
+}
+.bkg-positive {
+  background-color: $balanced !important;
+  color: white;
+}
+.bkg-negative {
+  background-color: $negative !important;
+  color: white;
+}
+.bkg-banner {
+  background-color: $blue-6 !important;
+  color: white;
+}
+.color-positive,
+.balanced { color: $balanced !important; }
+.color-subdued { color: $subdued !important; }
+.color-significant { color: $significant !important; }
+.color-body { color: $body !important; }
+.color-white { color: white !important; }
+.color-negative { color: $negative !important; }
+.color-background { color: $background !important; }

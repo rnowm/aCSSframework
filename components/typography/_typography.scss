@@ -1,0 +1,56 @@
+//
+// niji components - typography
+//
+
+body {
+  font-size: 17px;
+  line-height: 1.3;
+  color: $body;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  .nj-display {
+    font-size: 34px;
+    font-weight: normal;
+    line-height: 36px;
+    margin: 0 0 10px;
+  }
+
+  .nj-headline {
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 24px;
+    margin: 0 0 10px;
+  }
+
+  .nj-title {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 0 0 20px;
+  }
+
+  .nj-subtitle {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 23px;
+    margin: 0 0 15px;
+
+    strong { font-weight: bold; }
+  }
+
+  .nj-body {
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 19px;
+  }
+
+  .nj-small {
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 17px;
+
+    strong { font-weight: bold; }
+  }
+}

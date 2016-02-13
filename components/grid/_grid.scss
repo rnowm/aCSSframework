@@ -1,0 +1,141 @@
+//
+// niji components - grid
+//
+
+[columns~="1"] > .nj-gutter-left,
+[data-columns~="1"] > .nj-gutter-left,
+[columns~="1"] > .nj-gutter-right,
+[data-columns~="1"] > .nj-gutter-right {
+  padding-left: 0; padding-right: 0;
+}
+
+@include media-max-md {
+  [columns~="md1"] > .nj-gutter-left,
+  [data-columns~="md1"] > .nj-gutter-left,
+  [columns~="md1"] > .nj-gutter-right,
+  [data-columns~="md1"] > .nj-gutter-right {
+    padding-left: 0; padding-right: 0;
+  }
+}
+
+@include media-max-sm {
+  [columns~="sm1"] > .nj-gutter-left,
+  [data-columns~="sm1"] > .nj-gutter-left,
+  [columns~="sm1"] > .nj-gutter-right,
+  [data-columns~="sm1"] > .nj-gutter-right {
+    padding-left: 0; padding-right: 0;
+  }
+}
+
+@include media-max-xs {
+  [columns~="xs1"] > .nj-gutter-left,
+  [data-columns~="xs1"] > .nj-gutter-left,
+  [columns~="xs1"] > .nj-gutter-right,
+  [data-columns~="xs1"] > .nj-gutter-right {
+    padding-left: 0; padding-right: 0;
+  }
+}
+
+$maxCols: 6;
+@mixin width($width) { width: 100% / $width; }
+@mixin margin($width) { margin-left: 100% / $width; }
+
+@for $i from $maxCols through 1 {
+  [columns~="#{$i}"] > *,
+  [data-columns~="#{$i}"] > * { @include width($i); }
+  $j: $i;
+  @while $j > 0 {
+    [columns~="#{$i}"] > [column-span~="#{$j}"],
+    [data-columns~="#{$i}"] > [data-column-span~="#{$j}"] { @include width($i/$j); }
+    [columns~="#{$i}"] > [column-offset~="#{$j}"],
+    [data-columns~="#{$i}"] > [data-column-offset~="#{$j}"] { @include margin($i/$j); }
+    $j: $j - 1;
+  }
+  [columns~="#{$i}"] > [column-span~="0"],
+  [data-columns~="#{$i}"] > [data-column-span~="0"] { width: 100%; }
+  [columns~="#{$i}"] > [column-offset~="0"],
+  [data-columns~="#{$i}"] > [data-column-offset~="0"] { margin-left: 0; }
+}
+
+//
+// Media queries
+//
+
+@include media-max-md {
+  @for $i from $maxCols through 1 {
+    [columns~="md#{$i}"] > *,
+    [data-columns~="md#{$i}"] > * { @include width($i); }
+    $j: $i;
+    @while $j > 0 {
+      [columns~="md#{$i}"] > [column-span~="md#{$j}"],
+      [data-columns~="md#{$i}"] > [data-column-span~="md#{$j}"] { @include width($i/$j); }
+      [columns~="md#{$i}"] > [column-offset~="md#{$j}"],
+      [data-columns~="md#{$i}"] > [data-column-offset~="md#{$j}"] { @include margin($i/$j); }
+      $j: $j - 1;
+    }
+    [columns~="md#{$i}"] > [column-span~="md0"],
+    [data-columns~="md#{$i}"] > [data-column-span~="md0"] { width: 100%; }
+    [columns~="md#{$i}"] > [column-offset~="md0"],
+    [data-columns~="md#{$i}"] > [data-column-offset~="md0"] { margin-left: 0; }
+  }
+}
+
+@include media-max-sm {
+  @for $i from $maxCols through 1 {
+    [columns~="sm#{$i}"] > *,
+    [data-columns~="sm#{$i}"] > * { @include width($i); }
+    $j: $i;
+    @while $j > 0 {
+      [columns~="sm#{$i}"] > [column-span~="sm#{$j}"],
+      [data-columns~="sm#{$i}"] > [data-column-span~="sm#{$j}"] { @include width($i/$j); }
+      [columns~="sm#{$i}"] > [column-offset~="sm#{$j}"],
+      [data-columns~="sm#{$i}"] > [data-column-offset~="sm#{$j}"] { @include margin($i/$j); }
+      $j: $j - 1;
+    }
+    [columns~="sm#{$i}"] > [column-span~="sm0"],
+    [data-columns~="sm#{$i}"] > [data-column-span~="sm0"] { width: 100%; }
+    [columns~="sm#{$i}"] > [column-offset~="sm0"],
+    [data-columns~="sm#{$i}"] > [data-column-offset~="sm0"] { margin-left: 0; }
+  }
+}
+
+@include media-max-xs {
+  @for $i from $maxCols through 1 {
+    [columns~="xs#{$i}"] > *,
+    [data-columns~="xs#{$i}"] > * { @include width($i); }
+    $j: $i;
+    @while $j > 0 {
+      [columns~="xs#{$i}"] > [column-span~="xs#{$j}"],
+      [data-columns~="xs#{$i}"] > [data-column-span~="xs#{$j}"] { @include width($i/$j); }
+      [columns~="xs#{$i}"] > [column-offset~="xs#{$j}"],
+      [data-columns~="xs#{$i}"] > [data-column-offset~="xs#{$j}"] { @include margin($i/$j); }
+      $j: $j - 1;
+    }
+    [columns~="xs#{$i}"] > [column-span~="xs0"],
+    [data-columns~="xs#{$i}"] > [data-column-span~="xs0"] { width: 100%; }
+    [columns~="xs#{$i}"] > [column-offset~="xs0"],
+    [data-columns~="xs#{$i}"] > [data-column-offset~="xs0"] { margin-left: 0; }
+  }
+}
+
+// hide columns
+[columns~="0"],
+[data-columns~="0"] { display: none }
+@include media-max-md {
+  [columns~="md0"],
+  [data-columns~="md0"],
+  [column-span~="md0"],
+  [data-column-span~="md0"] { display: none }
+}
+@include media-max-sm {
+  [columns~="sm0"],
+  [data-columns~="sm0"],
+  [column-span~="sm0"],
+  [data-column-span~="sm0"] { display: none }
+}
+@include media-max-xs {
+  [columns~="xs0"],
+  [data-columns~="xs0"],
+  [column-span~="xs0"],
+  [data-column-span~="xs0"] { display: none }
+}

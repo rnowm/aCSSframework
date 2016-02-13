@@ -1,0 +1,74 @@
+//
+// niji components - collapsibles
+//
+
+.nj-collapsible,
+.nj-divider {
+  position: relative;
+  margin-left: -$contentPadding;
+  margin-right: -$contentPadding;
+  border: none;
+  overflow: hidden;
+
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    background: linear-gradient(rgba(221,237,240,0.8) 0%, rgba(221,237,240,0) 100%);
+    height: 6px;
+    width: 100%;
+  }
+
+  &:after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid $background;
+    background: linear-gradient(rgba(221,237,240,0) 0%, rgba(221,237,240,0.8) 100%);
+    height: 7px;
+    width: 100%;
+  }
+}
+
+.nj-divider {
+  min-height: 12px;
+}
+
+.nj-collapsible {
+  height: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  padding: 1px $contentPadding;
+
+  &.show {
+    height: auto;
+    margin-top: 25px;
+    padding-top: 25px;
+    opacity: 1;
+  }
+
+  header {
+    position: relative;
+
+    .nj-icon.small {
+      position: absolute;
+      top: -22px;
+      right: -20px;
+      padding: 10px;
+      color: $link;
+      text-decoration: none;
+
+      &:hover,
+      &:focus { color: $linkHover; }
+    }
+  }
+
+  & + & { margin-top: -1px; }
+}
+
+// inside nj-list
+.nj-list.border > li .nj-collapsible.show {
+  margin-bottom: -21px;
+}

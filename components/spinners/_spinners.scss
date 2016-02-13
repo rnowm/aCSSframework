@@ -1,0 +1,28 @@
+//
+// niji components - spinners
+//
+
+// overlay
+.nj-spinner {
+  &.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    background-color: fade-out($alpha,0.2);
+    @include centerY();
+  }
+
+  [icon],
+  [data-icon] {
+    font-size: 30px;
+    animation: rotate 1.5s linear infinite;
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

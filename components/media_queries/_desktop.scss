@@ -1,0 +1,147 @@
+//
+// niji components - desktop
+//
+
+// tablet portrait breakpoint
+@include media-min-sm {
+
+  //
+  // reset
+  //
+  .nj-view.drawer {
+    left: $drawerWidth;
+    .nj-wrapper { margin: 0; }
+  }
+
+  .nj-wrapper { transition: margin 0.4s ease; }
+
+  .nj-content { top: $headerHeight; }
+
+  .nj-view hr {
+    &.fit {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .nj-box {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  //
+  // header
+  //
+  .nj-header {
+    height: $headerHeight;
+    line-height: $headerHeight;
+
+    &.drawer {
+      padding-left: $drawerWidth + $gutter;
+      .nj-wrapper {
+        margin: 0;
+        max-width: $widthSM;
+      }
+    }
+
+    h1 {
+      &.nj-headline,
+      .nj-headline { line-height: $headerHeight; }
+    }
+  }
+
+  .nj-drawer-btn { display: none; }
+
+  .nj-subheader {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
+  //
+  // drawer
+  //
+  .nj-drawer,
+  .nj-drawer.menu {
+    width: $drawerWidth;
+    transform: translateX(0);
+
+    &:before { display: none; }
+
+    header {
+      &:before { display: none; }
+      &:after {
+        position: absolute;
+        content: "";
+        top: 10px;
+        bottom: 10px;
+        right: 0;
+        width: 1px;
+        background-color: $blue-5;
+      }
+
+      h2 {
+        height: $headerHeight;
+        line-height: $headerHeight;
+      }
+    }
+
+    nav {
+      top: $headerHeight;
+      border-right: 1px solid $blue-5;
+    }
+  }
+
+  // Collapsibles
+  .nj-collapsible,
+  .nj-divider {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .nj-divider {
+    &:before,
+    &:after { display: none; }
+  }
+
+  // Alerts
+  .nj-alerts {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    margin-top: -$contentPadding;
+    margin-bottom: $contentPadding;
+    border-radius: 0 0 $radiusLarge $radiusLarge;
+  }
+
+  // ionic
+  .nj-drawer.menu:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $headerHeight;
+    background: $gradient;
+  }
+
+  .nj-view.view-container {
+    right: 0;
+    width: auto;
+  }
+
+  ion-side-menu-content {
+    left: 275px;
+    box-shadow: none;
+    transform: translate3d(0,0,0) !important;
+  }
+}
+
+
+// desktop breakpoint
+@include media-min-lg {
+  .nj-header,
+  .nj-view {
+    &.drawer .nj-wrapper { margin: 0 0 0 10%; }
+  }
+}

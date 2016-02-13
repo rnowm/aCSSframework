@@ -1,0 +1,172 @@
+//
+// niji components - dropdowns
+//
+
+.nj-dropdown,
+nj-dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: transparent;
+  color: $body;
+
+  &:before {
+    position: absolute;
+    font-weight: normal;
+    font-size: 24px;
+    top: 0;
+    right: 0;
+    width: 40px;
+    line-height: 34px;
+    pointer-events: none;
+    text-align: center;
+  }
+
+  button {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    background-image: none;
+    background-color: white;
+    color: $body;
+    font-size: 17px;
+    line-height: 29px;
+    padding: 8px 40px 8px 14px;
+    font-weight: normal;
+    border-radius: $radius;
+    border: 1px solid white;
+    cursor: pointer;
+    @include truncate();
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    button {
+      outline: none;
+    }
+  }
+
+  .active ul { display: block; }
+
+  ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    margin-top: -2px;
+    list-style: none;
+    background-color: $background;
+    overflow: hidden;
+    z-index: 100;
+    border-radius: 0 0 $radius $radius;
+  }
+
+  li {
+    position: relative;
+    font-size: 17px;
+    line-height: 29px;
+    padding: 8px 14px;
+    word-break: break-word;
+    color: $body;
+
+    &:hover,
+    &:focus {
+      background: $significant;
+      cursor: pointer;
+    }
+
+    & + li { border-top: 1px solid fade-out($positive, 0.85); }
+  }
+
+  a {
+    color: $body;
+    text-decoration: none;
+  }
+
+  //sizes
+  &.small {
+    &:before {
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    button {
+      font-size: 11px;
+      line-height: 13px;
+      padding: 6px 40px 6px 9px;
+    }
+
+    &:hover,
+    &:focus {
+      button {
+        padding: 5px 39px 5px 8px;
+      }
+    }
+
+    li { font-size: 11px; }
+  }
+
+  &.large {
+    &:before {
+      font-size: 30px;
+      line-height: 44px;
+    }
+
+    button {
+      font-size: 24px;
+      line-height: 29px;
+      padding: 7px 40px 7px 14px;
+    }
+
+    &:hover,
+    &:focus {
+      button {
+        padding: 6px 39px 6px 13px;
+      }
+    }
+
+    li { font-size: 24px; }
+  }
+
+  // options
+  &.block {
+    width: 100%;
+
+    button { width: 100%; }
+  }
+
+  &[icon],
+  &[data-icon] {
+    color: $significant;
+    text-align: left;
+
+    &:before {
+      top: 6px;
+    }
+  }
+
+  &.up {
+    &:before {
+      top: -2px;
+    }
+
+    ul {
+      box-shadow: $shadowReverse;
+      top: auto;
+      bottom: 100%;
+      margin: 8px 4px 0;
+    }
+  }
+}
+.nj-dropdown {
+  &:hover,
+  &:focus {
+    ul { display: block; }
+  }
+}

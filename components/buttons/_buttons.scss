@@ -1,0 +1,258 @@
+//
+// niji components - buttons
+//
+
+// Reset
+button::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.nj-button {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  min-width: 35px;
+  background-image: none;
+  background-color: $primary;
+  color: $primaryText;
+  font-size: 18px;
+  line-height: 29px;
+  padding: 7px 20px;
+  font-weight: normal;
+  text-align: center;
+  border: 1px solid $primaryBorder;
+  border-radius: $radius;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  touch-action: manipulation;
+  box-sizing: border-box;
+  text-transform: none;
+  @include truncate();
+  text-decoration: none !important;
+
+  // states
+  &:hover,
+  &:focus {
+    color: $textHover;
+    background-color: $primaryHover;
+    border-color: $borderHover;
+    outline: none;
+  }
+  &:visited {
+    text-decoration: none !important;
+  }
+  &.active {
+    color: $textActive;
+    background-color: $primaryActive;
+    border-color: $borderActive;
+  }
+
+  // icons
+  [icon]:before,
+  [data-icon]:before {
+    position: relative;
+    line-height: 0;
+    font-size: 23px;
+    top: 0;
+  }
+
+  [icon]:only-child:before,
+  [data-icon]:only-child:before {
+    margin-left: -8px;
+    left: 4px;
+  }
+
+  span + [icon],
+  span + [data-icon] {
+    margin-left: 10px;
+  }
+
+  [icon] + span,
+  [data-icon] + span {
+    margin-left: 3px;
+  }
+
+  span { font-size: 24px; }
+
+  // options
+  &.inverted {
+    background-color: white;
+    color: $primary;
+    border-color: $primaryBorder;
+
+    &:hover,
+    &:focus {
+      background-color: white;
+      color: $primaryHover;
+      border-color: $borderHover;
+    }
+
+    &.active {
+      background-color: white;
+      color: $primaryActive;
+      border-color: $borderActive;
+    }
+  }
+
+  &.secondary {
+    background-color: $secondary;
+    color: $secondaryText;
+    border-color: $secondaryBorder;
+
+    &:hover,
+    &:focus {
+      background-color: $secondaryHover;
+      color: $secondaryTextHover;
+      border-color: $secondaryBorderHover;
+    }
+
+    &.active {
+      background-color: $secondaryActive;
+      color: $secondaryTextActive;
+      border-color: $secondaryBorderActive;
+    }
+  }
+
+  &.negative {
+    background-color: $negative;
+    color: $negativeText;
+    border-color: $negativeBorder;
+
+    &:hover,
+    &:focus {
+      background-color: $negativeHover;
+      color: $negativeTextHover;
+      border-color: $negativeBorderHover;
+    }
+
+    &.active {
+      background-color: $negativeActive;
+      color: $negativeTextActive;
+      border-color: $negativeBorderActive;
+    }
+
+    &.inverted {
+      background-color: white;
+      color: $negative;
+      border-color: $negativeBorder;
+
+      &:hover,
+      &:focus {
+        background-color: white;
+        color: $negativeHover;
+        border-color: $negativeBorderHover;
+      }
+
+      &.active {
+        background-color: white;
+        color: $negativeActive;
+        border-color: $negativeBorderActive;
+      }
+    }
+  }
+
+  &.small {
+    padding: 8px 20px;
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  &.large {
+    padding: 13px 20px;
+    font-size: 20px;
+  }
+
+  &.icon {
+    padding-left: 7px;
+    padding-right: 7px;
+
+    &[icon] { font-size: 20px; }
+  }
+
+  &.link {
+    font-weight: normal;
+    white-space: inherit;
+    text-align: left;
+    background-color: transparent;
+    border-color: transparent;
+    color: $link;
+    padding: 0;
+    font-size: 17px;
+    line-height: 20px;
+
+    &.inline {
+      display: initial;
+      line-height: inherit;
+    }
+
+    &.small {
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 18px;
+
+      &[icon],
+      &[data-icon],
+      &[class^="icon-"],
+      &[class*=" icon-"] {
+        padding-left: 25px;
+        min-height: 20px;
+
+        &:before {
+          font-size: 18px;
+          line-height: 18px;
+          margin: -9px 0 0;
+        }
+      }
+    }
+
+    &[icon],
+    &[data-icon],
+    &[class^="icon-"],
+    &[class*=" icon-"] {
+      padding-left: 42px;
+      min-height: 30px;
+      display: table;
+
+      &:before {
+        position: absolute;
+        font-size: 23px;
+        line-height: 23px;
+        top: 50%;
+        left: 0;
+        margin: -11px 0 0;
+      }
+
+      span {
+        font-size: 17px;
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      &.multiline {
+        display: inline-block;
+        span { display: block; }
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: $linkHover;
+      text-decoration: underline;
+      &:before { text-decoration: none; }
+    }
+  }
+
+  &.block {
+    display: block;
+    width: 100%;
+  }
+
+  &[disabled],
+  &.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,213 @@
+//
+// niji components - headers
+//
+
+.nj-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  color: $headerText;
+  background-color: transparent;
+  padding: 0 $contentPadding;
+  height: $headerHeightSM;
+  line-height: $headerHeightSM;
+  min-width: $widthMin;
+
+  .nj-wrapper {
+    @include clearfix();
+    height: 100%;
+    max-width: 100%;
+  }
+
+  h1 {
+    position: relative;
+    margin: 0;
+    height: 100%;
+    @include fit();
+
+    &.nj-headline,
+    .nj-headline {
+      margin: 0;
+      line-height: $headerHeightSM;
+    }
+
+    a {
+      display: block;
+      color: $headerText;
+      height: 100%;
+      text-decoration: none;
+    }
+  }
+
+  &.logo {
+    .nj-wrapper {
+      text-align: center;
+      margin: 0;
+    }
+
+    h1 {
+      display: inline-block;
+      font-size: 0;
+      width: 35px;
+      background: url('assets/images/niji.svg') left center no-repeat;
+      background-size: 100% auto;
+    }
+
+    a {
+      font-size: 0;
+      width: 100%;
+    }
+
+    &.inverted  {
+      h1 { background-image: url('assets/images/niji_inverted.svg'); }
+    }
+  }
+
+  .nj-switch {
+    float: right;
+    padding: 0 0 0 10px;
+    margin-top: -2px;
+
+    .nj-switch-label { display: none !important; }
+  }
+}
+
+.nj-drawer-btn,
+.nj-header-btn {
+  height: 100%;
+  line-height: normal;
+  width: 50px;
+  color: white;
+
+  &.nj-float-l { margin-left: -13px; }
+  &.nj-float-r { margin-right: -13px; }
+}
+
+.nj-drawer-btn {
+  float: left;
+  margin-left: -13px;
+}
+
+.nj-subheader {
+  position: fixed;
+  top: $headerHeightSM;
+  left: 0;
+  right: 0;
+  color: $blue-5;
+  height: 35px;
+  line-height: 35px;
+  @include clearfix();
+  background-color: fade-out($blue-8, 0.8);
+  padding: 0 $contentPadding;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: $blue-7;
+
+  h3 {
+    font-size: 16px;
+    line-height: 35px;
+    font-weight: normal;
+    padding-right: 10px;
+    padding-bottom: 0;
+    margin: 0;
+    @include fit();
+    color: $blue-7;
+  }
+
+  h4 {
+    float: right;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 35px;
+    margin: 0;
+    color: $blue-7;
+  }
+
+  .nj-float-r { padding-left: 10px; }
+  .nj-icon { padding: 0 5px 0 0; }
+
+  .nj-icon {
+    padding: 0;
+    height: 18px;
+
+    &.nj-float-l { padding-right: 10px; }
+
+    &.nj-float-r {
+      padding-left: 10px;
+      margin-right: -5px;
+    }
+  }
+
+  .nj-button.link.small {
+    line-height: 35px;
+    border: none;
+  }
+
+  .nj-collapsible {
+    position: fixed;
+    top: 85px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    border-bottom: 0;
+    margin: 0;
+    background-color: rgba(white, 0.7);
+    color: $blue-7;
+    font-size: 16px;
+    line-height: 18px;
+    z-index: 10;
+
+    &:before,
+    &:after { display: none; }
+
+    &.show {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .nj-list {
+      padding: 0;
+      margin: 0;
+      margin-bottom: 0;
+      font-size: 16px;
+      line-height: 18px;
+      background-color: white;
+      border-bottom: 1px solid fade-out($blue-8, 0.8);
+    }
+
+    li {
+      @include clearfix();
+      padding: 0;
+    }
+
+    .nj-icon {
+      padding: 0;
+      height: 18px;
+
+      &.nj-float-l { padding-right: 10px; }
+    }
+
+    a {
+      display: block;
+      padding: 10px $contentPadding;
+
+      &:hover { background-color: fade-out($blue-8, 0.8); }
+    }
+
+    h3, h4 { line-height: normal; }
+  }
+}
+
+.nj-content .nj-subheader {
+  position: static;
+  margin: (-$contentPadding) (-$contentPadding) 15px;
+}
+
+.nj-section-header {
+  @include fit();
+  border-bottom: 1px solid $background;
+
+  nj-switch { float: right; }
+}

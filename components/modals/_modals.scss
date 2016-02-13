@@ -1,0 +1,115 @@
+//
+// niji components - modals
+//
+
+// overlay
+.nj-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background-color: fade-out($alpha,0.2);
+  @include centerY();
+
+  &.show { display: block; }
+
+  &.dialog {
+    background-color: $modalOverlay;
+
+    .nj-card-content {
+      header {
+        color: $body;
+        background-color: white;
+      }
+    }
+
+    .nj-card {
+      background-color: $background;
+      margin: 0;
+
+      header {
+        background-color: $subdued;
+        color: white;
+        border-radius: $radiusLarge $radiusLarge 0 0;
+        margin: -25px -25px 30px;
+        padding: 20px 25px 0;
+
+        .nj-icon {
+          top: 2px;
+          right: 2px;
+
+          &:hover,
+          &:focus { color: white; }
+
+          .nj-icon + h2,
+          .nj-icon + h3 { padding-right: 15px; }
+        }
+      }
+
+      .nj-card {
+        background-color: white;
+        margin: 40px 0 20px;
+
+        header {
+          color: $body;
+          background-color: white;
+        }
+      }
+
+      footer { background: $background; }
+
+      .nj-card + footer { margin-top: -15px; }
+    }
+
+    .nj-button.disabled {
+      background-color: $primary;
+      opacity: 0.4;
+    }
+  }
+
+  .nj-card {
+    background: white;
+    margin: 20px;
+    text-align: left;
+    font-size: 15px;
+
+    header {
+      h2 {
+        margin: 0;
+        padding-bottom: 25px;
+      }
+
+      .nj-icon {
+        top: -25px;
+        right: -25px;
+      }
+    }
+
+    .nj-card-content { margin-top: 0; }
+
+    footer { background: white; }
+  }
+
+  &.ng-hide-animate {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+
+    & > .nj-card {
+      transform: translateY(0);
+      transition: transform 0.4s ease;
+    }
+
+    &.ng-hide {
+      opacity: 0;
+      transition: z-index 0s ease 1s;
+
+      & > .nj-card {
+        transform: translateY(-100%);
+      }
+    }
+  }
+}

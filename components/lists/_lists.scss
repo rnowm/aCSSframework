@@ -1,0 +1,132 @@
+//
+// niji components - lists
+//
+
+.nj-list {
+  margin-bottom: 25px;
+  font-size: 17px;
+  line-height: 19px;
+
+  li {
+    padding: 5px 0;
+
+    &[icon] {
+      position: relative;
+      text-align: left;
+      cursor: pointer;
+      color: $link;
+
+      &:hover,
+      &:focus { color: $linkHover; }
+
+      &:before {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -10px;
+      }
+
+      * { padding-right: 25px; }
+
+      a.nj-button.link {
+        margin-top: -5px;
+        margin-bottom: -5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+
+    &.first { margin-top: -20px; }
+
+    & > label.nj-checkbox,
+    & > label.nj-radio,
+    & > label.nj-switch { padding: 5px 0; }
+  }
+
+  &.border > li {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    & + li { border-top: 1px solid $divider; }
+
+    & > a.nj-button.link {
+      margin-top: -20px;
+      margin-bottom: -20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &.radio {
+    border-radius: $radius;
+    border: 1px solid $divider;
+
+    & > li {
+      padding: 20px 15px 20px 45px;
+      border-bottom: none;
+      color: $link;
+
+      &:before {
+        display: none;
+        position: absolute;
+        left: 17px;
+        color: $balanced;
+      }
+
+      &.active {
+        color: $balanced;
+        &:before { display: block; }
+      }
+
+      & + li { border-top: 1px solid $divider; }
+    }
+  }
+
+  &.disc {
+    list-style: disc;
+    padding: 0 0 10px 17px;
+  }
+
+  &.nj-card-padding {
+    margin: 0 -25px;
+    padding: 0;
+
+    & > li {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+  }
+
+  h2 {
+    padding: 0 0 20px;
+    margin: 0;
+  }
+
+  .nj-list { margin-bottom: 10px; }
+}
+
+// Ordered list
+ol.nj-list {
+  padding: 0;
+
+  & > li {
+    position: relative;
+    list-style: none;
+    counter-increment: counter;
+    margin-bottom: 25px;
+    margin-left: 35px;
+
+    &:before {
+      position: absolute;
+      content: counter(counter);
+      left: -35px;
+      top: 2px;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      background-color: $background;
+      border-radius: 50%;
+    }
+  }
+}

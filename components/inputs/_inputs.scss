@@ -1,0 +1,168 @@
+//
+// niji components - inputs
+//
+
+.nj-input[type],
+.nj-textarea {
+  display: inline-block;
+  vertical-align: middle;
+  background: $white;
+  color: $inputColor;
+  font-size: 18px;
+  line-height: 29px;
+  padding: 7px 14px;
+  border: 1px solid fade-out($gray-2,0.5);
+  border-radius: $radius;
+  box-sizing: border-box;
+  height: auto;
+  appearance: none;
+
+  // paceholder
+  &::palceholder {
+    opacity: 0.8;
+    line-height: normal;
+  }
+
+  // states
+  &:hover,
+  &:focus {
+    border-color: $significant;
+    outline: none;
+    box-shadow: $shadowSignificant;
+  }
+
+  // icons
+  &.icon {
+    padding-right: 40px;
+
+    & + [icon],
+    & + [data-icon] {
+      color: $inputColor;
+      position: relative;
+      width: 40px;
+      top: 4px;
+      left: -36px;
+      margin-right: -30px;
+
+      &:before { font-size: 22px; }
+    }
+  }
+
+  //options
+  &.block {
+    width: 100%;
+
+    & + [icon],
+    & + [data-icon] {
+      position: absolute;
+      right: 2px;
+      top: 10px;
+      left: auto;
+      margin-right: 0;
+    }
+  }
+}
+
+.nj-input[type],
+.nj-textarea {
+  &:-webkit-autofill { background-color: white; }
+}
+.nj-input[type] { @include truncate(); }
+.nj-textarea { resize: none; }
+
+// validation
+.nj-message {
+  display: inline-block;
+  vertical-align: middle;
+  color: white;
+  font-size: 16px;
+  padding: 8px 0;
+  border-radius: $radius;
+  box-sizing: border-box;
+
+  &.block {
+    display: block;
+  }
+}
+
+.nj-valid,
+.nj-invalid {
+  .nj-input[type],
+  .nj-textarea {
+    &:hover,
+    &:focus {
+      border-color: $significant;
+      box-shadow: $shadowSignificant;
+    }
+  }
+}
+
+.nj-input[type],
+.nj-textarea {
+  &.nj-valid,
+  &.nj-invalid {
+    &:hover,
+    &:focus {
+      border-color: $significant;
+      box-shadow: $shadowSignificant;
+    }
+  }
+}
+
+.nj-valid {
+  .nj-input[type],
+  .nj-textarea  {
+    border-color: $significant;
+    box-shadow: $shadowSignificant;
+  }
+  .nj-message { color: $significant; }
+}
+
+.nj-input[type],
+.nj-textarea  {
+  &.nj-valid {
+    border-color: $significant;
+    box-shadow: $shadowSignificant;
+    & + .nj-message { color: $significant; }
+  }
+}
+
+.nj-invalid {
+  .nj-input[type],
+  .nj-textarea  {
+    color: $negative;
+    border-color: $negative;
+    box-shadow: $shadowInvalid;
+  }
+  .nj-message { color: $negative; }
+}
+
+.nj-input[type],
+.nj-textarea  {
+  &.nj-invalid {
+    color: $negative;
+    border-color: $negative;
+    box-shadow: $shadowInvalid;
+    & + .nj-message { color: $negative; }
+  }
+}
+
+.nj-input[type].block + .nj-message,
+.nj-textarea.block + .nj-message {
+  margin-top: 5px;
+  display: block;
+}
+
+.nj-input[type=number] {
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+}
+
+.nj-pininput .nj-input[type] {
+  text-indent: 30px;
+  letter-spacing: 30px;
+}

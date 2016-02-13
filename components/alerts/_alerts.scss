@@ -1,0 +1,64 @@
+//
+// niji components - alerts
+//
+
+.nj-alerts {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .nj-alert { position: relative; }
+}
+
+.nj-alert {
+  position: fixed;
+  color: white;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $balanced;
+  padding: 20px 40px 20px 25px;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 15px;
+
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    background: linear-gradient(rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 100%);
+    height: 6px;
+    width: 100%;
+  }
+
+  .nj-close {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+
+    &:hover,
+    &:focus { color: white; }
+  }
+
+  .nj-button.link { color: white; }
+
+  .nj-icon.rounded {
+    background-color: white;
+    color: $balanced;
+  }
+
+  &.warning {
+    background-color: $warning;
+    .nj-icon.rounded { color: $warning; }
+  }
+
+  &.negative {
+    background-color: $negative;
+    .nj-icon.rounded { color: $negative; }
+  }
+}

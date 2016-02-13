@@ -1,0 +1,120 @@
+//
+// niji components - cards
+//
+
+.nj-card {
+  position: relative;
+  background-color: white;
+  padding: 25px 25px 5px;
+  border-radius: $radiusLarge;
+  margin: 10px (-$columnGutter);
+
+  @include media-min-xs { margin: 10px 0; }
+
+  &[column] {
+    @include media-min-xs { margin: 10px auto; }
+  }
+
+  &[two-columns] {
+    @include media-min-sm { margin: 10px auto; }
+  }
+
+  & > .nj-icon.small {
+    position: absolute;
+    top: -2px;
+    right: 0px;
+    padding: 10px;
+    color: $link;
+    text-decoration: none;
+
+    &:hover,
+    &:focus { color: $linkHover; }
+
+    & + h2 { padding-right: 15px; }
+  }
+
+  header {
+    position: relative;
+
+    .nj-icon.small {
+      position: absolute;
+      top: -22px;
+      right: -20px;
+      padding: 10px;
+      color: $link;
+      text-decoration: none;
+
+      &:hover,
+      &:focus { color: $linkHover; }
+    }
+  }
+
+  .nj-card-content {
+    color: $body;
+    margin: 25px 0 5px;
+  }
+
+  footer {
+    position: relative;
+    background-color: $alpha;
+    border-radius: 0 0 $radiusLarge $radiusLarge;
+    margin: 0 -25px -5px;
+    padding: 10px 25px;
+    line-height: 58px;
+
+    p {  margin-bottom: 0; }
+
+    .nj-icon {
+      color: $body;
+      text-decoration: none;
+      display: inline-block;
+      padding: 0;
+      margin-bottom: -10px;
+
+      &:hover,
+      &:focus { color: $linkHover; }
+    }
+
+    &.bkg-gradient { line-height: inherit; }
+
+    &.border { border-top: 2px solid $background; }
+
+    &.small {
+      border-width: 1px;
+      line-height: 20px;
+    }
+
+    .nj-button.large {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    & > .nj-icon.small {
+      position: absolute;
+      top: 50%;
+      margin-top: -22px;
+      right: 5px;
+      padding: 10px;
+      color: $link;
+      text-decoration: none;
+
+      &:hover,
+      &:focus { color: $linkHover; }
+
+      & + * { margin-right: 10px; }
+    }
+
+    & + & {
+      margin-top: 15px; 
+      @include media-min-sm { margin-top: 30px; }
+    }
+  }
+
+  .nj-card-padding {
+    margin: 0 -25px -5px;
+    padding: 25px 25px 5px;
+
+    &.top { border-radius: $radiusLarge $radiusLarge 0 0; }
+    &.bottom { border-radius: 0 0 $radiusLarge $radiusLarge; }
+  }
+}

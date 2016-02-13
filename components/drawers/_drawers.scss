@@ -1,0 +1,276 @@
+//
+// niji components - drawers
+//
+
+.nj-drawer,
+.nj-drawer.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateX(-100%);
+  background-color: transparent;
+  transition: transform 0.4s 0.2s ease,
+              background 0.4s;
+
+  @include media-max-xs { transform: translateX(-480px); }
+
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: $drawerWidth;
+    width: 6px;
+    background: linear-gradient(to right, rgba(0,79,124,0.3) 0%, rgba(0,79,124,0) 100%);
+  }
+
+  &.show {
+  transform: translateX(0);
+  background-color: fade-out($blue-1, 0.9);
+  transition: transform 0.4s ease,
+      background 0.8s 0.2s;
+  }
+
+  [ng-click] { cursor: pointer; }
+
+  header {
+    position: relative;
+    text-align: center;
+    background-color: $headerColor;
+    width: $drawerWidth;
+
+    &:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      bottom: 0;
+      left: $drawerWidth;
+      width: 6px;
+      background: linear-gradient(to right, rgba(0,56,93,0.8) 0%, rgba(0,56,93,0) 100%);
+    }
+
+    h2 {
+      height: $headerHeightSM;
+      line-height: $headerHeightSM;
+      font-size: 0;
+      position: relative;
+      margin: 0;
+      display: inline-block;
+
+      a {
+        display: block;
+        height: 100%;
+        width: 35px;
+        text-decoration: none;
+        background: url('assets/images/niji.svg') left center no-repeat;
+        background-size: 100% auto;
+      }
+    }
+  }
+
+  nav {
+    position: absolute;
+    top: $headerHeightSM;
+    bottom: 0;
+    left: 0;
+    width: $drawerWidth;
+    overflow: auto;
+    background-color: white;
+  }
+
+  aside {
+    position: relative;
+    padding: 15px;
+    background-color: fade-out($blue-8, 0.8);
+    color: $blue-7;
+    @include clearfix();
+    line-height: 18px;
+
+    .nj-icon {
+      padding: 0;
+      height: 18px;
+
+      &.nj-float-l { padding-right: 10px; }
+
+      &.nj-float-r {
+        padding-left: 10px;
+        margin-right: -5px;
+      }
+    }
+
+    & + .nj-collapsible {
+      position: absolute;
+      top: 48px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0;
+      border-bottom: 0;
+      margin: 0;
+      background-color: rgba(white, 0.7);
+      color: $blue-7;
+      font-size: 16px;
+      line-height: 18px;
+      z-index: 1;
+
+      &:before,
+      &:after { display: none; }
+
+      .nj-list {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 0;
+        font-size: 16px;
+        line-height: 18px;
+        background-color: white;
+        border-bottom: 1px solid fade-out($blue-8, 0.8);
+      }
+
+      li {
+        @include clearfix();
+      }
+
+      .nj-icon {
+        padding: 0;
+        height: 18px;
+
+        &.nj-float-l { padding-right: 10px; }
+      }
+
+      a,span {
+        display: block;
+        padding: 15px 15px;
+
+        &:hover { background-color: fade-out($blue-8, 0.8); }
+      }
+    }
+  }
+
+  .nj-collapsible {
+    padding: 0;
+    border-bottom: 0;
+    margin: 0;
+
+    &.show {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: normal;
+    padding-right: 10px;
+    margin: 0;
+    @include fit();
+  }
+
+  h4 {
+    float: right;
+    font-weight: normal;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  nav ul {
+    position: relative;
+    margin: 10px 0;
+    list-style: none;
+    color: $blue-5;
+
+    &.border {
+      padding-bottom: 10px;
+      border-bottom: 1px solid $background;
+    }
+
+    &.dashboard {
+      margin: 10px 0;
+
+      [icon], [data-icon] {
+        &:before { color: $primary; }
+      }
+    }
+
+    li {
+      position: relative;
+      padding: 15px 20px;
+      font-size: 18px;
+      line-height: 20px;
+      margin: 0;
+
+      &.border { border-bottom: 1px solid $background; }
+
+      &[class^="icon-"]:before,
+      &[class*=" icon-"]:before {
+        position: absolute;
+        color: $blue-5;
+        top: 17px;
+        right: 20px;
+        font-size: 15px;
+        z-index: 1;
+      }
+
+      &.active {
+        a {
+          border-color: $blue-7;
+          color: $blue-7;
+          transition: border 0.3s ease 0s;
+        }
+      }
+
+      &.disabled {
+        [icon], [data-icon] {
+          &:before { color: $background; }
+        }
+      }
+
+      li {
+        margin-left: 20px;
+
+        [icon]:before { opacity: 0.5; }
+      }
+
+      span {
+        color: $blue-8;
+        padding-left: 5px;
+      }
+    }
+
+    a, label {
+      font-size: 18px;
+      line-height: 20px;
+      display: block;
+      margin: -15px -20px;
+      padding: 15px 20px;
+      color: $blue-5;
+    }
+
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      transition: border 0.5s ease 0.1s;
+      border-left: 8px solid transparent;
+
+      &:hover { color: $blue-7; }
+    }
+
+    [icon],
+    [data-icon] {
+      position: relative;
+      text-align: left;
+      padding-left: 48px;
+
+      &:before {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        height: 22px;
+        width: 22px;
+        font-size: 22px;
+        text-align: center;
+      }
+    }
+  }
+}
