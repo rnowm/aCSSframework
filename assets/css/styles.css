@@ -999,7 +999,7 @@ div.nj-switch {
         height: 100%;
         width: 35px;
         text-decoration: none;
-        background: url("assets/images/niji.svg") left center no-repeat;
+        background: url("assets/images/logo.svg") left center no-repeat;
         background-size: 100% auto; }
   .nj-drawer nav,
   .nj-drawer.menu nav {
@@ -2234,13 +2234,13 @@ nj-dropdown {
     display: inline-block;
     font-size: 0;
     width: 35px;
-    background: url("assets/images/niji.svg") left center no-repeat;
+    background: url("assets/images/logo.svg") left center no-repeat;
     background-size: 100% auto; }
   .nj-header.logo a {
     font-size: 0;
     width: 100%; }
   .nj-header.logo.inverted h1 {
-    background-image: url("assets/images/niji_inverted.svg"); }
+    background-image: url("assets/images/logo_inverted.svg"); }
   .nj-header .nj-switch {
     float: right;
     padding: 0 0 0 10px;

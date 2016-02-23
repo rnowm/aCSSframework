@@ -1,10 +1,10 @@
-var nijiApp = angular.module('nijiApp', [
+var myApp = angular.module('myApp', [
 	'nj-alerts',
 	'nj-modals',
 	'nj-dropdowns'
 ]);
 
-nijiApp.controller('nijiCtrl', function ($scope, $location, $anchorScroll) {
+myApp.controller('myCtrl', function ($scope, $location, $anchorScroll) {
   // hash navigation (demo only)
 	$scope.scrollTo = function(id) {
     var old = $location.hash();

@@ -1,5 +1,5 @@
 //
-// niji components - headers
+// logo components - headers
 //
 
 .nj-header {
@@ -50,7 +50,7 @@
       display: inline-block;
       font-size: 0;
       width: 35px;
-      background: url('assets/images/niji.svg') left center no-repeat;
+      background: url('assets/images/logo.svg') left center no-repeat;
       background-size: 100% auto;
     }
 
@@ -60,7 +60,7 @@
     }
 
     &.inverted  {
-      h1 { background-image: url('assets/images/niji_inverted.svg'); }
+      h1 { background-image: url('assets/images/logo_inverted.svg'); }
     }
   }
 

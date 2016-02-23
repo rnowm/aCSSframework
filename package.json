@@ -1,7 +1,7 @@
 {
   "name": "aCSSframework",
   "version": "1.0.0",
-  "description": "Reusable components for niji project",
+  "description": "Reusable components",
   "main": "styles/demo.html",
   "author": "",
   "license": "MIT",
